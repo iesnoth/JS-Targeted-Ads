@@ -1,14 +1,36 @@
 // get user's data
 // get user's coordinates                                                              
 async function getCoords(){
-    pos = await new Promise((resolve, reject) => {
+    let pos = await new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(resolve, reject);
     })
-    return [pos.coords.latitude, pos.coords.longitude]
+    return pos
 }
-//to acknowledge there is an error on reject, need to make different functions
-//for the resolve and reject?
 //promise fulfillment status and promise result
+//async await on getCoords
+//return whole promise and catch error
+//try and catch
+try {
+    getCoords();
+} catch (error){
+    console.error(error);
+}
+
+//EXAMPLE
+// try {
+//     myroutine(); // may throw three types of exceptions
+//   } catch (e) {
+//     if (e instanceof TypeError) {
+//       // statements to handle TypeError exceptions
+//     } else if (e instanceof RangeError) {
+//       // statements to handle RangeError exceptions
+//     } else if (e instanceof EvalError) {
+//       // statements to handle EvalError exceptions
+//     } else {
+//       // statements to handle any unspecified exceptions
+//       logMyErrors(e); // pass exception object to error handler
+//     }
+//   }
 
 
 // get user's time                                                             
